@@ -43,9 +43,9 @@ var _hmt = _hmt || [];
 			}else{
 				echo dec($bv);
 			}
-			echo "<br/><br/><font color='grey' size='2'><a href='https://t.bilibili.com/369856852383980461' target='_blank'>意见反馈</a></font><br><font size='1' color='grey'>已支持www.bilibili.bv2av.com/video/BV1XJ41157tQ方式查询<br>(在B站链接中加入bv2av就可以查询啦)</font>";
+			echo "<br/><br/><font color='grey' size='2'><a href='https://github.com/Blokura/bv2av' target='_blank'>github</a></font><br><font size='1' color='grey'>已支持www.bilibili.bv2av.com/video/BV1XJ41157tQ方式查询<br>(在B站链接中加入bv2av就可以查询啦)</font>";
 		}else{
-			echo "<font color='grey' size='2'>本地解密转换</font> <a href='https://www.zhihu.com/question/381784377/answer/1099438784' target='_blank'>算法</a><br><br/><font size='1' color='grey'>支持www.bilibili.bv2av.com/video/BV1XJ41157tQ方式查询(在链接中加入bv2av就可以查询啦)</font><br/><b>强烈谴责某些小人DDOS和QQ举报危险域名<br>本网站不含任何广告以及违法内容，也没有任何信息收集，请自便</b><br/><br/><font size='4'><b>更多功能</b></font><br>查询用户信息和粉丝勋章：<a href='http://nbtester.com/breeze/user.t' target='_blank'>nbtester</a><br>查询用户直播中奖记录：<a href='https://www.madliar.com/bili/raffles' target='_blank'>madliar</a>";
+			echo "<font color='grey' size='2'>本地解密转换</font> <a href='https://www.zhihu.com/question/381784377/answer/1099438784' target='_blank'>算法</a><br><br/><font size='1' color='grey'>支持www.bilibili.bv2av.com/video/BV1XJ41157tQ方式查询(在链接中加入bv2av就可以查询啦)</font><br/><b>强烈谴责某些小人DDOS和QQ举报危险域名<br>本网站不含任何广告以及违法内容，也没有任何信息收集，请自便</b><br/><br/><font size='4'><b>更多功能</b></font><br>查询用户信息和粉丝勋章：<a href='http://nbtester.com/breeze/user.t' target='_blank'>nbtester</a><br>查询用户直播中奖记录：<a href='https://www.madliar.com/bili/raffles' target='_blank'>madliar</a><br><br><font color='grey' size='2'><a href='https://github.com/Blokura/bv2av' target='_blank'>github</a></font>";
 		}
 		?>
 	</center>
