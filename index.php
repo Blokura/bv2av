@@ -74,9 +74,9 @@ const av2bv = (av) => {
     };
 
     num = (num ^ xor) + add;
-    let result = [...'BV '];
+    let result = [...'BV          '];
     let i = 0;
-    while (i < 6) {
+    while (i < 10) {
         // 这里改写差点犯了运算符优先级的坑
         // 果然 Python 也不是特别熟练
         // 说起来 ** 按照传统语法应该写成 Math.pow()，但是我个人更喜欢 ** 一些
@@ -105,7 +105,7 @@ const bv2av = (bv) => {
 
     let result = 0;
     let i = 0;
-    while (i < 6) {
+    while (i < 10) {
         result += table.indexOf(str[s[i]]) * 58 ** i;
         i += 1;
     };
