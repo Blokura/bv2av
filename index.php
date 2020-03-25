@@ -1,11 +1,17 @@
 <html>
 <head>
-	<title>BV号转AV号工具 - 找回视频丢失的AV号</title>
-	<meta name="Keywords" Content="BV号,AV号,B站,哔哩哔哩">
-	<meta name="Description" Content="一个可以将BV号转AV号的小工具">
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta charset="utf-8" />
+    <meta name="keywords" content="bv号,av号,B站,哔哩哔哩">
+    <meta name="description" content="一个可以将BV号转AV号的小工具">
+	<meta itemprop="name" content="BV号转AV号工具">
+	<meta itemprop="description" content="一个可以将BV号转AV号的小工具">
+	<meta itemprop="image" content="https://q.qlogo.cn/g?b=qq&nk=800059038&s=100">
 	<meta name="referrer" content="no-referrer">
+    <title>BV号转AV号 - 找回视频丢失的AV号</title>
+    <link href="/css/demo.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.0/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/Buttons/2.0.0/css/buttons.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/font-awesome/5.12.1/css/fontawesome.min.css" rel="stylesheet">
 	<script>
 var _hmt = _hmt || [];
 (function() {
@@ -14,52 +20,111 @@ var _hmt = _hmt || [];
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-</script>
+	</script>
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: table;
+            font-weight: 100;
+            font-family: 'Lato';
+        }
+        
+        .container {
+            text-align: center;
+            display: block;
+            position: relative;
+            top: 150px;
+            vertical-align: middle;
+        }
+        
+        .content {
+            text-align: center;
+            display: inline-block;
+        }
+        
+        .title {
+            font-size: 66px;
+        }
+        
+        .title small {
+            font-size: 33px;
+        }
+        
+        .title a {
+            color: #000;
+            text-decoration: none;
+        }
+        
+        goo {
+            display: block;
+            position: fixed;
+            top: 250px;
+        }
+        goog{
+            display: block;
+            position: fixed;
+            bottom:0px;
+        }
+    </style>
 </head>
-<body>
-	<center>
-		<font size="5"><b>找回哔哩哔哩视频丢失的AV号</b></font><br><br>
-		<input type="text" id="av" placeholder="AV..."><button onclick="return av() && false">AV 号转 BV 号</button><br>
-		<input type="text" id="bv" placeholder="BV..."><button onclick="return bv() && false">BV 号转 AV 号</button><br>
-		
-		<?php
+<body background="/images/background.png">
+    <div class="container">
+        <div class="content">
+            <div class="title">BV号⇆AV号</div>
+        </div>
+        <div class="row"></div>
+            <div class="for-group">
+                <div class="goo">
+                    <form action="/index.php">
+                    <input type="text" id="x" name="BV" placeholder="请输入视频AV/BV号" value="<?php echo $_GET['BV'] ?>" class="form-control" style="text-align:center"/>
+                    <br>
+					<br>
+                    <button type="button" class = "button center button button-glow button-border button-rounded button-primary" onclick="return exchange() && false">本地JS转换</button>&nbsp;&nbsp;
+					<button type="submit" class = "button center button button-glow button-border button-rounded button-primary" >获取视频信息</button>
+                    </form>
+                </div>
+            </div>
+		<p id="result">
+        <?php
 		if (isset($_GET['BV'])){  
 			$str = trim($_GET['BV']);  //清理空格  
 			$str = strip_tags($str);   //过滤html标签  
 			$str = htmlspecialchars($str);   //将字符内容转化为html实体  
 			$str = addslashes($str);  //防止SQL注入
-		}else{
-			echo "<p id='x'></p>↓<br><font id='result' size='4' color='red'></font><br/>";
-		}
+		}  
 		if($str != ""){
 			$bv = stristr($str,"BV1");
 			$bv = substr($bv,0,12);
 			if(strlen($str) != 12){
-				if(strlen($str) == 9){
+				if(strtolower(substr($str,0,2)) == 'av'){
+					echo dec($str);
+				}elseif(strlen($str) == 9){
 					echo dec('BV1'.$str);
 				}elseif(strlen($str) == 10){
 					echo dec('BV'.$str);
 				}else{
-					echo "<font size='4' color='red'>".$str."查询的不是一个正确的BV号</font>";
+					echo "<font size='4' color='red'>".$str." ¿你在想桃子?</font>";
 				}
 			}else{
 				echo dec($bv);
 			}
-			echo "<br/><br/><font color='grey' size='2'><a href='https://github.com/Blokura/bv2av' target='_blank'>github</a></font><br><font size='1' color='grey'>已支持www.bilibili.bv2av.com/video/BV1XJ41157tQ方式查询<br>(在B站链接中加入bv2av就可以查询啦)</font>";
-		}else{
-			echo "<font color='grey' size='2'>本地解密转换</font> <a href='https://www.zhihu.com/question/381784377/answer/1099438784' target='_blank'>算法</a> <a href='https://mrhso.github.io/IshisashiWebsite/BVwhodoneit/' target='_blank'>鸣谢</a><br><br/><font size='1' color='grey'>支持https://www.bilibili.bv2av.com/video/BV1XJ41157tQ方式查询(在链接中加入bv2av就可以查询啦)</font><br/><b>强烈谴责某些小人DDOS和举报危险域名<br>本网站不含任何广告以及违法内容，也没有任何信息收集，请自便</b><br/><br/><font size='4'><b>更多功能</b></font><br>查询用户信息和粉丝勋章：<a href='http://nbtester.com/breeze/user.t' target='_blank'>nbtester</a><br>查询用户直播中奖记录：<a href='https://www.madliar.com/bili/raffles' target='_blank'>madliar</a><br><br><font color='grey' size='2'><a href='https://github.com/Blokura/bv2av' target='_blank'>github</a></font>";
 		}
 		?>
-	</center>
+		</p>
 <script>
-// 改写自 https://www.zhihu.com/question/381784377/answer/1099438784，并加上一些适当的处理
-// JS抄自 https://mrhso.github.io/IshisashiWebsite/BVwhodoneit/ 非常感谢
 'use strict';
 
 const table = [...'fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF'];
-const s = [11, 10, 3, 8, 4, 6, 2, 9, 5, 7];
+const s = [11, 10, 3, 8, 4, 6];
 const xor = 177451812;
-const add = 100618342136696320;
+const add = 8728348608;
 
 const av2bv = (av) => {
     let num = NaN;
@@ -70,13 +135,13 @@ const av2bv = (av) => {
     };
     if (isNaN(num) || num <= 0) {
         // 网页版直接输出这个结果了
-        return '¿你在想桃子？';
+        return '¿你在想桃子?';
     };
 
     num = (num ^ xor) + add;
-    let result = [...'BV          '];
+    let result = [...'bv1  4 1 7  '];
     let i = 0;
-    while (i < 10) {
+    while (i < 6) {
         // 这里改写差点犯了运算符优先级的坑
         // 果然 Python 也不是特别熟练
         // 说起来 ** 按照传统语法应该写成 Math.pow()，但是我个人更喜欢 ** 一些
@@ -97,33 +162,32 @@ const bv2av = (bv) => {
     } else if (bv.length === 9) {
         str = `BV1${bv}`;
     } else {
-        return '¿你在想桃子？';
+        return '¿你在想桃子?';
     };
     if (!str.match(/[Bb][Vv][fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF]{10}/gu)) {
-        return '¿你在想桃子？';
+        return '¿你在想桃子?';
     };
 
     let result = 0;
     let i = 0;
-    while (i < 10) {
+    while (i < 6) {
         result += table.indexOf(str[s[i]]) * 58 ** i;
         i += 1;
     };
     return `av${result - add ^ xor}`;
 };
 
-const av = () => {
-	document.getElementById('x').innerText = `${document.getElementById('av').value}`;
-    document.getElementById('result').innerText = `${av2bv(document.getElementById('av').value)}`;
-};
 
-const bv = () => {
-	document.getElementById('x').innerText = `${document.getElementById('bv').value}`;
-    document.getElementById('result').innerText = `${bv2av(document.getElementById('bv').value)}`;
+const exchange = () => {
+	var x = document.getElementById('x').value;
+	if(x.substring(0,2).toLowerCase()=='bv'){
+        document.getElementById('x').value = `${bv2av(x)}`;
+	}else if(x.substring(0,2).toLowerCase()=='av'){
+        document.getElementById('x').value = `${av2bv(x)}`;
+	}
 };
 </script>
 </body>
-
 <?php
 function dec($x){
 	$table = 'fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF';
@@ -140,18 +204,35 @@ function dec($x){
 		$r += $tr[$x[$s[$i]]]*pow(58,$i);
 	}
 	$numbe = $r-$add^$xor;
-	if($numbe <=0 )return "<font size='4' color='red'>".$numbe."查询的不是一个正确的BV号</font>";
+	if($numbe <=0 )return "<font size='5' color='red'>".$numbe." </font>";
 	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, 'https://api.bilibili.com/x/web-interface/view/detail?bvid='.$x);
+	if(strtolower(substr($x,0,2))=='av'){
+		curl_setopt($ch, CURLOPT_URL, 'https://api.bilibili.com/x/web-interface/view/detail?aid='.substr($x,2));
+	}else{
+		curl_setopt($ch, CURLOPT_URL, 'https://api.bilibili.com/x/web-interface/view/detail?bvid='.$x);
+	}
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 	curl_setopt($ch, CURLOPT_TIMEOUT, 5);
 	$output = curl_exec($ch);
 	$json = json_decode($output);
 	curl_close($ch);
 	if(is_numeric($json->data->View->aid)){
-		return "<p id='x'>".$x."</p>↓<br><font id='result' size='4' color='red'>av".$numbe."</font><br/><br/><a href='https://www.bilibili.com/video/av".$json->data->View->aid."' target='_blank'><img src='".str_replace("http://","https://",$json->data->View->pic)."' width='192' height='108'></a><br/>".$json->data->View->title."<br/>UP主:<a href='https://space.bilibili.com/".$json->data->View->owner->mid."' target='_blank'>".$json->data->View->owner->name."";
+		if(strtolower(substr($x,0,2))=='av'){
+			return $x."<br>↓↓↓↓↓↓</br><font size='6' color='red'>".$json->data->View->bvid."</font><br/><br/><a href='https://www.bilibili.com/video/av".$json->data->View->aid."' target='_blank'><img src='".str_replace("http://","https://",$json->data->View->pic)."' width='192' height='118'></a><br/>".$json->data->View->title."<br/>UP主:<a href='https://space.bilibili.com/".$json->data->View->owner->mid."' target='_blank'>".$json->data->View->owner->name."</a>";
+		}else{
+			return $x."<br>↓↓↓↓↓↓</br><font size='6' color='red'>av".$json->data->View->aid."</font><br/><br/><a href='https://www.bilibili.com/video/av".$json->data->View->aid."' target='_blank'><img src='".str_replace("http://","https://",$json->data->View->pic)."' width='192' height='118'></a><br/>".$json->data->View->title."<br/>UP主:<a href='https://space.bilibili.com/".$json->data->View->owner->mid."' target='_blank'>".$json->data->View->owner->name."</a>";
+		}
 	}else{
-		return $x.'<br/>↓<br><font color="red"><b>av'.$numbe."</b></font>";
+		return $x.'<br/>↓↓↓↓↓↓</br><br><font size="5" font color="red">av'.$numbe.'<br><br><a target="_blank" class="button button-3d button-primary button-rounded" href=https://www.bilibili.com/video/av'.$numbe.">点击跳转</a></b></font>";
 	}
 }
 ?>
+<div class = "goog">
+    <br>
+    <br>
+    <br>
+	<p>Code by <a href="https://www.zhihu.com/question/381784377/answer/1099438784" target="_blank">mcfx</a></p>
+    <p>Built by <a href="https://github.com/Blokura/bv2av" target="_blank">Blokura</a></p>
+	<p>JavaScript by <a href="https://mrhso.github.io/IshisashiWebsite/BVwhodoneit/" target="_blank">mrhso</a></p>
+    <p>Theme by <a href="https://www.drblack-system.com" target="_blank">DrBlackの锦里</a></p>
+</div>
