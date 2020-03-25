@@ -74,7 +74,7 @@ var _hmt = _hmt || [];
         }
     </style>
 </head>
-<body background="/images/background.png">
+<body style="background-image:url(/images/background.png);background-repeat:no-repeat;">
     <div class="container">
         <div class="content">
             <div class="title">BV号⇆AV号</div>
