@@ -83,7 +83,7 @@ var _hmt = _hmt || [];
             <div class="for-group">
                 <div class="goo">
                     <form action="/index.php">
-                    <input type="text" id="x" name="BV" placeholder="请输入视频AV/BV号" value="<?php echo $_GET['BV'] ?>" class="form-control" style="text-align:center"/>
+                    <input type="text" id="x" name="BV" placeholder="请输入视频AV/BV号(需以英文开头)" value="<?php echo $_GET['BV'] ?>" class="form-control" style="text-align:center"/>
                     <br>
 					<br>
                     <button type="button" class = "button center button button-glow button-border button-rounded button-primary" onclick="return exchange() && false">本地JS转换</button>&nbsp;&nbsp;
@@ -190,21 +190,6 @@ const exchange = () => {
 </body>
 <?php
 function dec($x){
-	$table = 'fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF';
-	$tr = array();
-	for ($i=0;$i<58;$i++) {
-		$tr[$table[$i]]=$i;
-	}
-	$s = array(11,10,3,8,4,6,2,9,5,7);
-	$xor=177451812;
-	$add=100618342136696320;
-	//
-	$r = 0;
-	for ($i=0;$i<10;$i++) {
-		$r += $tr[$x[$s[$i]]]*pow(58,$i);
-	}
-	$numbe = $r-$add^$xor;
-	if($numbe <=0 )return "<font size='5' color='red'>".$numbe." </font>";
 	$ch = curl_init();
 	if(strtolower(substr($x,0,2))=='av'){
 		curl_setopt($ch, CURLOPT_URL, 'https://api.bilibili.com/x/web-interface/view/detail?aid='.substr($x,2));
@@ -217,20 +202,42 @@ function dec($x){
 	$json = json_decode($output);
 	curl_close($ch);
 	if(is_numeric($json->data->View->aid)){
-		if(strtolower(substr($x,0,2))=='av'){
+		if(strtolower(substr($x,0,2)) == 'av'){
 			return $x."<br>↓↓↓↓↓↓</br><font size='6' color='red'>".$json->data->View->bvid."</font><br/><br/><a href='https://www.bilibili.com/video/av".$json->data->View->aid."' target='_blank'><img src='".str_replace("http://","https://",$json->data->View->pic)."' width='192' height='118'></a><br/>".$json->data->View->title."<br/>UP主:<a href='https://space.bilibili.com/".$json->data->View->owner->mid."' target='_blank'>".$json->data->View->owner->name."</a>";
 		}else{
 			return $x."<br>↓↓↓↓↓↓</br><font size='6' color='red'>av".$json->data->View->aid."</font><br/><br/><a href='https://www.bilibili.com/video/av".$json->data->View->aid."' target='_blank'><img src='".str_replace("http://","https://",$json->data->View->pic)."' width='192' height='118'></a><br/>".$json->data->View->title."<br/>UP主:<a href='https://space.bilibili.com/".$json->data->View->owner->mid."' target='_blank'>".$json->data->View->owner->name."</a>";
 		}
 	}else{
-		return $x.'<br/>↓↓↓↓↓↓</br><br><font size="5" font color="red">av'.$numbe.'<br><br><a target="_blank" class="button button-3d button-primary button-rounded" href=https://www.bilibili.com/video/av'.$numbe.">点击跳转</a></b></font>";
+		if(strtolower(substr($x,0,2))=='bv'){
+			$table = 'fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF';
+			$tr = array();
+			for ($i=0;$i<58;$i++) {
+				$tr[$table[$i]]=$i;
+			}
+			$s = array(11,10,3,8,4,6,2,9,5,7);
+			$xor=177451812;
+			$add=100618342136696320;
+			$r = 0;
+			for ($i=0;$i<10;$i++) {
+				$r += $tr[$x[$s[$i]]]*pow(58,$i);
+			}
+			$numbe = $r-$add^$xor;
+			if($numbe <=0 )return "<font size='5' color='red'>".$numbe." </font>";
+			return $x.'<br/>↓↓↓↓↓↓</br><br><font size="5" font color="red">av'.$numbe.'<br><br><a target="_blank" class="button button-3d button-primary button-rounded" href=https://www.bilibili.com/video/av'.$numbe.">点击跳转</a></b></font>";
+		}else{
+			$message = $json->message;
+			if($message=="")$message="服务器查询任务太多";
+			return $x.'<br/>↓↓↓↓↓↓</br><br><font size="5" font color="red">获取详细信息失败'.$json->message.'<br><br><a target="_blank" class="button button-3d button-primary button-rounded" href=https://www.bilibili.com/video/'.$x.">点击跳转</a></b></font>";
+		}
 	}
 }
 ?>
 <div class = "goog">
     <br>
     <br>
-    <br>
+	bv2av.com<br>
+	bvtoav.com<br>
+	<br>
 	<p>Code by <a href="https://www.zhihu.com/question/381784377/answer/1099438784" target="_blank">mcfx</a></p>
     <p>Built by <a href="https://github.com/Blokura/bv2av" target="_blank">Blokura</a></p>
 	<p>JavaScript by <a href="https://mrhso.github.io/IshisashiWebsite/BVwhodoneit/" target="_blank">mrhso</a></p>
