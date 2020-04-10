@@ -3,10 +3,11 @@
     <meta charset="utf-8" />
     <meta name="keywords" content="bv号,av号,B站,哔哩哔哩">
     <meta name="description" content="一个可以将BV号转AV号的小工具">
-	<meta itemprop="name" content="BV号转AV号工具">
-	<meta itemprop="description" content="一个可以将BV号转AV号的小工具">
-	<meta itemprop="image" content="https://q.qlogo.cn/g?b=qq&nk=800059038&s=100">
-	<meta name="referrer" content="no-referrer">
+    <meta itemprop="name" content="BV号转AV号工具">
+    <meta itemprop="description" content="一个可以将BV号转AV号的小工具">
+    <meta itemprop="image" content="https://q.qlogo.cn/g?b=qq&nk=800059038&s=100">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="no-referrer">
     <title>BV号转AV号 - 找回视频丢失的AV号</title>
     <link href="/css/demo.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.0/css/bootstrap.css" rel="stylesheet">
