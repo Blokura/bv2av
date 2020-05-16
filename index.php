@@ -14,16 +14,30 @@
     <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.0/css/bootstrap.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/Buttons/2.0.0/css/buttons.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/5.12.1/css/fontawesome.min.css" rel="stylesheet">
+	<style type="text/css">
+	.bodystyle{
+		margin: 0;
+            padding: 0;
+            width: 100%;
+			height: 100%;
+            font-weight: 100;
+            font-family: 'Lato';
+			filter:alpha(opacity=50);  
+			-moz-opacity:0.5;  
+			-khtml-opacity: 0.5;  
+			opacity: 0.5;
+			background-image:url(http://api.ytc233.top/ACG/api.php);background-repeat:no-repeat;
+			 z-index: -1;
+			position:absolute;
+	}
+	</style>
     <style>
         html,
-        body {
-            height: 100%;
-        }
-        
         body {
             margin: 0;
             padding: 0;
             width: 100%;
+			height: 100%;
             display: table;
             font-weight: 100;
             font-family: 'Lato';
@@ -67,7 +81,10 @@
         }
     </style>
 </head>
-<body style="background-image:url(http://api.ytc233.top/ACG/api.php);background-repeat:no-repeat;">
+<body>
+<div class="bodystyle">
+</div>
+<div>
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script> <!-- 加入live2d看板娘 -->
     <div class="container">
         <div class="content">
