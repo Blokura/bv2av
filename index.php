@@ -10,6 +10,7 @@
     <meta name="referrer" content="no-referrer">
     <title>BV号转AV号 - 找回视频丢失的AV号</title>
     <link href="/css/demo.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
     <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.0/css/bootstrap.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/Buttons/2.0.0/css/buttons.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/5.12.1/css/fontawesome.min.css" rel="stylesheet">
@@ -67,6 +68,7 @@
     </style>
 </head>
 <body style="background-image:url(http://api.ytc233.top/ACG/api.php);background-repeat:no-repeat;">
+<script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script> <!-- 加入live2d看板娘 -->
     <div class="container">
         <div class="content">
             <div class="title">BV号AV号转换</div>
@@ -80,6 +82,13 @@
 					<br>
                     <button type="button" class = "button center button button-glow button-border button-rounded button-primary" onclick="return exchange() && false">本地JS转换</button>&nbsp;&nbsp;
 					<button type="submit" class = "button center button button-glow button-border button-rounded button-primary" >获取视频信息</button>
+					<br><br><button class = "button center button button-glow button-border button-rounded button-primary" href="javascript:location.reload();">点我刷新本页</button>&nbsp;&nbsp;
+					<button class = "button center button button-glow button-border button-rounded button-primary" οnclick="change()">点我换背景图</button>&nbsp;&nbsp;
+					<script>
+    function change() {
+			document.body.style.backgroundImage="url(http://api.ytc233.top/ACG)";
+    }
+</script>
                     </form>
                 </div>
             </div>
