@@ -66,7 +66,7 @@
         }
     </style>
 </head>
-<body style="background-image:url(/images/background.png);background-repeat:no-repeat;">
+<body style="background-image:url(http://api.ytc233.top/ACG);background-repeat:no-repeat;">
     <div class="container">
         <div class="content">
             <div class="title">BV号⇆AV号</div>
