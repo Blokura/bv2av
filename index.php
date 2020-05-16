@@ -66,16 +66,16 @@
         }
     </style>
 </head>
-<body style="background-image:url(http://api.ytc233.top/ACG);background-repeat:no-repeat;">
+<body style="background-image:url(http://api.ytc233.top/ACG/api.php);background-repeat:no-repeat;">
     <div class="container">
         <div class="content">
-            <div class="title">BV号⇆AV号</div>
+            <div class="title">BV号AV号转换</div>
         </div>
         <div class="row"></div>
             <div class="for-group">
                 <div class="goo">
                     <form action="/index.php">
-                    <input type="text" id="x" name="BV" placeholder="请输入视频AV/BV号(需以英文开头)" value="<?php echo $_GET['BV'] ?>" class="form-control" style="text-align:center"/>
+                    <input type="text" id="x" name="BV" placeholder="请输入视频AV/BV号(记得带上英文哦)" value="<?php echo $_GET['BV'] ?>" class="form-control" style="text-align:center"/>
                     <br>
 					<br>
                     <button type="button" class = "button center button button-glow button-border button-rounded button-primary" onclick="return exchange() && false">本地JS转换</button>&nbsp;&nbsp;
@@ -227,11 +227,13 @@ function dec($x){
 <div class = "goog">
     <br>
     <br>
-	bv2av.com<br>
-	bvtoav.com<br>
+	<a href="http://bv2av.com/" target="_blank">bv2av.com</a><br>
+	<a href="http://bvtoav.com" target="_blank">bvtoav.com</a><br>
+	<a href="http://bv2av.ytc233.top" target="_blank">bv2av.ytc233.top</a><br>
 	<br>
 	<p>Code by <a href="https://www.zhihu.com/question/381784377/answer/1099438784" target="_blank">mcfx</a></p>
     <p>Built by <a href="https://github.com/Blokura/bv2av" target="_blank">Blokura</a></p>
+	<p>Rebuilt by <a href="https://github.com/2594418727/bv2av" target="_blank">YTC233</a></p>
 	<p>JavaScript by <a href="https://mrhso.github.io/IshisashiWebsite/BVwhodoneit/" target="_blank">mrhso</a></p>
     <p>Theme by <a href="https://www.drblack-system.com" target="_blank">DrBlackの锦里</a></p>
 </div>
