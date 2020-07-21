@@ -26,7 +26,7 @@
 			-moz-opacity:0.5;  
 			-khtml-opacity: 0.5;  
 			opacity: 0.5;
-			background-image:url(http://api.ytc233.top/ACG/api.php);background-repeat:no-repeat;
+			background-image:url(http://cdn.ytc233.top/ACG/api.php);background-repeat:no-repeat;
 			 z-index: -1;
 			position:absolute;
 	}
