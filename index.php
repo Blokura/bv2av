@@ -84,7 +84,6 @@
 <body>
 <div class="bodystyle">
 </div>
-<div>
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script> <!-- 加入live2d看板娘 -->
     <div class="container">
         <div class="content">
