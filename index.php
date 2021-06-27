@@ -26,7 +26,7 @@
 			-moz-opacity:0.5;  
 			-khtml-opacity: 0.5;  
 			opacity: 0.5;
-			background-image:url(http://cdn.ytc233.top/ACG/api.php);background-repeat:no-repeat;
+			background-image:url(https://cdn.ytc233.top/ACG/api.php);background-repeat:no-repeat;
 			 z-index: -1;
 			position:absolute;
 	}
@@ -97,9 +97,7 @@
                     <br>
 					<br>
                     <button type="button" class = "button center button button-glow button-border button-rounded button-primary" onclick="return exchange() && false">本地JS转换</button>&nbsp;&nbsp;
-					<button type="submit" class = "button center button button-glow button-border button-rounded button-primary" >获取视频信息</button>
-					<br><br><button class = "button center button button-glow button-border button-rounded button-primary" href="javascript:location.reload();">点我刷新本页</button>&nbsp;&nbsp;
-					<button class = "button center button button-glow button-border button-rounded button-primary" οnclick="change()">点我换背景图</button>&nbsp;&nbsp;
+					<button class = "button center button button-glow button-border button-rounded button-primary" οnclick="change()">点我换背景图</button>
 					<script>
     function change() {
 			document.body.style.backgroundImage="url(http://api.ytc233.top/ACG)";
@@ -114,7 +112,6 @@
 			$str = trim($_GET['BV']);  //清理空格  
 			$str = strip_tags($str);   //过滤html标签  
 			$str = htmlspecialchars($str);   //将字符内容转化为html实体  
-			$str = addslashes($str);  //防止SQL注入
 		}  
 		if($str != ""){
 			$bv = stristr($str,"BV1");
@@ -204,61 +201,14 @@ const exchange = () => {
 	}
 };
 </script>
-</body>
-<?php
-function dec($x){
-	$ch = curl_init();
-	if(strtolower(substr($x,0,2))=='av'){
-		curl_setopt($ch, CURLOPT_URL, 'https://api.bilibili.com/x/web-interface/view/detail?aid='.substr($x,2));
-	}else{
-		curl_setopt($ch, CURLOPT_URL, 'https://api.bilibili.com/x/web-interface/view/detail?bvid='.$x);
-	}
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-	$output = curl_exec($ch);
-	$json = json_decode($output);
-	curl_close($ch);
-	if(is_numeric($json->data->View->aid)){
-		if(strtolower(substr($x,0,2)) == 'av'){
-			return $x."<br>↓↓↓↓↓↓</br><font size='6' color='red'>".$json->data->View->bvid."</font><br/><br/><a href='https://www.bilibili.com/video/av".$json->data->View->aid."' target='_blank'><img src='".str_replace("http://","https://",$json->data->View->pic)."' width='192' height='118'></a><br/>".$json->data->View->title."<br/>UP主:<a href='https://space.bilibili.com/".$json->data->View->owner->mid."' target='_blank'>".$json->data->View->owner->name."</a>";
-		}else{
-			return $x."<br>↓↓↓↓↓↓</br><font size='6' color='red'>av".$json->data->View->aid."</font><br/><br/><a href='https://www.bilibili.com/video/av".$json->data->View->aid."' target='_blank'><img src='".str_replace("http://","https://",$json->data->View->pic)."' width='192' height='118'></a><br/>".$json->data->View->title."<br/>UP主:<a href='https://space.bilibili.com/".$json->data->View->owner->mid."' target='_blank'>".$json->data->View->owner->name."</a>";
-		}
-	}else{
-		if(strtolower(substr($x,0,2))=='bv'){
-			$table = 'fZodR9XQDSUm21yCkr6zBqiveYah8bt4xsWpHnJE7jL5VG3guMTKNPAwcF';
-			$tr = array();
-			for ($i=0;$i<58;$i++) {
-				$tr[$table[$i]]=$i;
-			}
-			$s = array(11,10,3,8,4,6,2,9,5,7);
-			$xor=177451812;
-			$add=100618342136696320;
-			$r = 0;
-			for ($i=0;$i<10;$i++) {
-				$r += $tr[$x[$s[$i]]]*pow(58,$i);
-			}
-			$numbe = $r-$add^$xor;
-			if($numbe <=0 )return "<font size='5' color='red'>".$numbe." </font>";
-			return $x.'<br/>↓↓↓↓↓↓</br><br><font size="5" font color="red">av'.$numbe.'<br><br><a target="_blank" class="button button-3d button-primary button-rounded" href=https://www.bilibili.com/video/av'.$numbe.">点击跳转</a></b></font>";
-		}else{
-			$message = $json->message;
-			if($message=="")$message="服务器查询任务太多";
-			return $x.'<br/>↓↓↓↓↓↓</br><br><font size="5" font color="red">获取详细信息失败'.$json->message.'<br><br><a target="_blank" class="button button-3d button-primary button-rounded" href=https://www.bilibili.com/video/'.$x.">点击跳转</a></b></font>";
-		}
-	}
-}
-?>
 <div class = "goog">
     <br>
     <br>
-	<a href="http://bv2av.com/" target="_blank">bv2av.com</a><br>
-	<a href="http://bvtoav.com" target="_blank">bvtoav.com</a><br>
-	<a href="http://bv2av.ytc233.top" target="_blank">bv2av.ytc233.top</a><br>
 	<br>
+	<p>Rebuilt by <a href="https://github.com/2594418727/bv2av" target="_blank">YTC233</a></p>
 	<p>Code by <a href="https://www.zhihu.com/question/381784377/answer/1099438784" target="_blank">mcfx</a></p>
     <p>Built by <a href="https://github.com/Blokura/bv2av" target="_blank">Blokura</a></p>
-	<p>Rebuilt by <a href="https://github.com/2594418727/bv2av" target="_blank">YTC233</a></p>
 	<p>JavaScript by <a href="https://mrhso.github.io/IshisashiWebsite/BVwhodoneit/" target="_blank">mrhso</a></p>
     <p>Theme by <a href="https://www.drblack-system.com" target="_blank">DrBlackの锦里</a></p>
 </div>
+</body>
